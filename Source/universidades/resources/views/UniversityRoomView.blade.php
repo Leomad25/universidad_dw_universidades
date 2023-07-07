@@ -3,16 +3,20 @@
 <head>
     <title>Lista de Universidades</title>
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/roomList.css') }}">
 </head>
 <body>
     @if ($university->isEmpty())
         <h1>Universidad no encontrada</h1>
     @else
-        <h1>Universidad {{ $university[0]->name }} ({{ $university[0]->nit }})</h1>
+        <h1 style="padding-bottom: 0px !important;">Universidad</h1>
+        <h1 style="padding-top: 0px !important;">{{ $university[0]->name }} ({{ $university[0]->nit }})</h1>
         <!-- Panel de botones -->
         <div style="margin-bottom: 10px;">
             <a href="{{ url('/') }}">Regresar al home</a>
         </div>
+
+        @if (intval($university[0]->max_rooms) > count($rooms))
         <!-- Formulario de agregar Rooms -->
         <div class="form">
             <h2>Agregar salon</h2>
@@ -48,30 +52,34 @@
                 <button class="btn raised-button" type="submit">Agregar</button>
             </form>
         </div>
+        @endif
+
         <!-- Listado -->
-        <div>
+        <div id="rooms-list-container">
             @if ($rooms->isEmpty())
                 <h2>No hay salones</h2>
             @else
-                <ul id="rooms-list">
-                    @foreach ($rooms as $room)
-                        <li>{{$room->id}}</li>
-                    @endforeach
-                </ul>
+                <h2>Salones de la universidad</h2>
+                <ul id="rooms-list"></ul>
             @endif
         </div>
+        <footer>
+            <script>
+                const subcategorydata = {!!$subCategories!!};
+            </script>
+            @if (intval($university[0]->max_rooms) > count($rooms))
+                <script src="{{ asset('js/insertSubCategories.js') }}"></script>
+                <script>
+                    onInit_subCategory('category_id', 'sub_category_id', subcategorydata);
+                </script>
+            @endif
+            <script src="{{ asset('js/roomData.js') }}"></script>
+            <script>
+                const categorydata = {!!$categories!!};
+                const roomsdata = {!!$rooms!!};
+                onInit_rooms('rooms-list', roomsdata, categorydata, subcategorydata);
+            </script>
+        </footer>
     @endif
-    <footer>
-        <script src="{{ asset('js/insertSubCategories.js') }}"></script>
-        <script>
-            const subcategorydata = {!!$subCategories!!};
-            onInit_subCategory('category_id', 'sub_category_id', subcategorydata);
-        </script>
-        <script src="{{ asset('js/roomData.js') }}"></script>
-        <script>
-            const roomsdata = {!!$rooms!!};
-            onInit_rooms('rooms-list', roomsdata);
-        </script>
-    </footer>
 </body>
 </html>

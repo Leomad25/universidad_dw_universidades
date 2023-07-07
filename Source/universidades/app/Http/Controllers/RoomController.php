@@ -25,6 +25,18 @@ class RoomController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        $room = Room::find($id);
+        $university_id = null;
+        try {
+            $university_id = $room->university_id;
+        } catch (\Throwable $th) {}
+        if ($room) $room->delete();
+        if ($university_id) return redirect()->route('university', ['id' => $university_id]);
+        return redirect()->route('home');
+    }
+
     public function formReciver(Request $request) {
         $university_id = $request->input('university_id');
         $category_id = $request->input('category_id');

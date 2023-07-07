@@ -12,11 +12,15 @@
         <a href="{{ url('/createUniversity') }}">Añadir universidad</a>
     </div>
 
+    <div class="university-title">
     @if ($universites->isEmpty())
-        <p>No hay universidades registradas.</p>
+        <h2>No hay universidades registradas.</h2>
     @else
+        <h2>Listado de universidades</h2>
         <ul id="university-list" class="university-list"></ul>
     @endif
+    </div>
+
     <footer>
         <script src="{{ asset('js/universityData.js') }}"></script>
         <script>

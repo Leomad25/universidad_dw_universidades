@@ -1,0 +1,66 @@
+/* Styles of container */
+#rooms-list-container {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 15px;
+}
+
+    #rooms-list-container h2 {
+        text-align: left;
+        pointer-events: none;
+    }
+
+/* Styles of items */
+#rooms-list .rooms-item {
+    margin-top: 5px;
+    background-color: rgba(50, 100, 230, 1);
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    pointer-events: none;
+}
+
+    #rooms-list .rooms-item .rooms-counter {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #rooms-list .rooms-item .rooms-info {
+        width: calc(100% - 5%);
+        text-align: left;
+    }
+
+    #rooms-list .rooms-item .rooms-btn {
+        width: 100px;
+    }
+
+#rooms-list form {
+    margin-left: 0% !important;
+    transform: none !important;
+    width: 100% !important;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    #rooms-list form button {
+        width: 90%;
+        height: 80%;
+        border-radius: 5px;
+        border: 0;
+        background-color: rgba(200, 0, 0, .7);
+        cursor: pointer;
+        pointer-events: all;
+        font-size: 15px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #rooms-list form button:hover {
+        background-color: rgba(200, 0, 0, 1);
+        font-size: 18px;
+        font-weight: bold;
+    }

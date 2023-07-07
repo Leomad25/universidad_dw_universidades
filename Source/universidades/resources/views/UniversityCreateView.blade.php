@@ -7,11 +7,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-    <h1>Crear de Universidades</h1>
+    @if (!boolval($isUpdate))
+        <h1>Crear Universidad</h1>
+    @else
+        <h1>Actualizar Universidad</h1>
+    @endif
+
+    <!-- Panel de botones -->
+    <div style="margin: 10px;">
+        <a href="{{ url('/') }}">Regresar al home</a>
+    </div>
+
     <!-- Formulario -->
     <div>
-        <form method="POST" action="{{ url('/createUniversity') }}">
+        <form method="POST" action="{{ isset($university) ? route('createUniversityPut', ['id' => $university->id]) : route('createUniversityPost') }}">
             @csrf
+            
+            @if (isset($university))
+                @method('PUT')
+            @endif
 
             <!-- Campo Nit -->
             <div class="form-input">
@@ -56,18 +70,26 @@
             </div>
 
             <!-- Botton submmit -->
-            <button class="btn raised-button" type="submit">Crear</button>
+            @if (!boolval($isUpdate))
+                <button class="btn raised-button" type="submit">Crear</button>
+            @else
+                <button class="btn raised-button" type="submit">Actualizar</button>
+            @endif
         </form>
     </div>
-    <!-- Panel de botones -->
-    <div style="margin: 10px;">
-        <a href="{{ url('/') }}">Regresar al home</a>
-    </div>
+    
     <!-- Pie de pagina -->
     <footer>
         <script src="{{ asset('js/formsAnimations.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script>flatpickr("#date");</script>
+        @if (boolval($isUpdate))
+            <script src="{{ asset('js/loadUnivesity.js') }}"></script>
+            <script>
+                const predata = {!!$university!!};
+                preLoadInfo(predata);
+            </script>
+        @endif
     </footer>
 </body>
 </html>

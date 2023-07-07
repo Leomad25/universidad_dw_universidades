@@ -1,6 +1,5 @@
 function onInit_university(container_id, data) {
     let container = document.getElementById(container_id);
-    console.log(data);
     data.forEach((e) => {
         var spam, div, divInfo, btn, form;
 
@@ -12,7 +11,7 @@ function onInit_university(container_id, data) {
 
         div = document.createElement('div');
         div.classList.add('university-element-id');
-        spam = document.createElement('p');
+        spam = document.createElement('b');
         spam.innerHTML = e.id;
         div.appendChild(spam);
         divInfo.appendChild(div);
@@ -59,7 +58,7 @@ function onInit_university(container_id, data) {
         div.appendChild(form);
 
         form = document.createElement('form');
-        form.action = '/createUniversity/' + e.id;
+        form.action = '/updateUniversity/' + e.id;
         form.method = 'get';
         btn = document.createElement('button');
         btn.type = 'submit';
@@ -68,8 +67,8 @@ function onInit_university(container_id, data) {
         div.appendChild(form);
 
         form = document.createElement('form');
-        form.action = '/university/' + e.id;
-        form.method = 'delete';
+        form.action = '/deleteUniversity/' + e.id;
+        form.method = 'get';
         btn = document.createElement('button');
         btn.type = 'submit';
         btn.textContent = 'Eliminar';

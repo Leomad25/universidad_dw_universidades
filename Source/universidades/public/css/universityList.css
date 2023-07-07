@@ -1,3 +1,12 @@
+.university-title {
+    margin-top: 15px;
+}
+
+    .university-title h2 {
+        text-align: left;
+        margin-left: 5%;
+    }
+
 .university-list {
     width: 90%;
     margin-left: 5%;
@@ -38,6 +47,19 @@
             .university-element-info
             .university-element-date {
                 width: calc((100%)/4);
+            }
+
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-id,
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-date {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
         .university-list
