@@ -1,0 +1,79 @@
+.university-list {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    list-style: none;
+}
+
+    .university-list
+    .university-element {
+        margin-top: 5px;
+        padding: 5px;
+        background-color: rgba(50, 100, 230, 1);
+        border-radius: 5px;
+    }
+
+        .university-list
+        .university-element
+        .university-element-info {
+            display: flex;
+            width: 100%;
+            pointer-events: none;
+        }
+
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-id,
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-name,
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-contact,
+            .university-list
+            .university-element
+            .university-element-info
+            .university-element-date {
+                width: calc((100%)/4);
+            }
+
+        .university-list
+        .university-element
+        .university-element-btns {
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+            .university-list
+            .university-element
+            .university-element-btns
+            form {
+                margin-left: 0;
+                width: calc(100% / 3);
+                transform: none;
+            }
+
+                .university-list
+                .university-element
+                .university-element-btns
+                form button {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background-color: rgb(200, 200, 200);
+                    color: #333333;
+                    border: 1px solid #cccccc;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                .university-list
+                .university-element
+                .university-element-btns
+                form button:hover {
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
