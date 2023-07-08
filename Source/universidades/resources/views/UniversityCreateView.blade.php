@@ -30,50 +30,74 @@
             <!-- Campo Nit -->
             <div class="form-input">
                 <label for="nit">NIT:</label>
-                <input autocomplete="off" type="text" name="nit" id="nit" required>
+                <input autocomplete="off" type="text" name="nit" id="nit">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                </div>
             </div>
 
             <!-- Campo Name -->
             <div class="form-input">
                 <label for="name">Nombre:</label>
-                <input autocomplete="off" type="text" name="name" id="name" required>
+                <input autocomplete="off" type="text" name="name" id="name">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                </div>
             </div>
 
             <!-- Campo Address -->
             <div class="form-input">
                 <label for="address">Direccion:</label>
-                <input autocomplete="off" type="text" name="address" id="address" required>
+                <input autocomplete="off" type="text" name="address" id="address">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                </div>
             </div>
 
             <!-- Campo eMail -->
             <div class="form-input">
                 <label for="email">e-Mail:</label>
-                <input autocomplete="off" type="email" name="email" id="email" required>
+                <input autocomplete="off" type="text" name="email" id="email">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                    <p>El correo es invalido</p>
+                </div>
             </div>
 
             <!-- Campo Date -->
             <div class="form-input">
                 <label for="date">Fecha:</label>
-                <input autocomplete="off" type="text" name="date" id="date" required data-flatpickr>
+                <input autocomplete="off" type="text" name="date" id="date" data-flatpickr>
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                </div>
             </div>
 
             <!-- Campo Phone -->
             <div class="form-input">
                 <label for="phone">Telefono:</label>
-                <input autocomplete="off" type="tel" name="phone" id="phone" required>
+                <input autocomplete="off" type="tel" name="phone" id="phone">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                    <p>El telefono es invalido</p>
+                </div>
             </div>
 
             <!-- Campo Max_rooms -->
             <div class="form-input">
                 <label for="max_rooms">Salones Maximos:</label>
-                <input autocomplete="off" type="text" name="max_rooms" id="max_rooms" required>
+                <input autocomplete="off" type="text" name="max_rooms" id="max_rooms">
+                <div class="form-input-error">
+                    <p>Este dato es requerido</p>
+                    <p>El max de salones es invalido</p>
+                </div>
             </div>
 
             <!-- Botton submmit -->
             @if (!boolval($isUpdate))
-                <button class="btn raised-button" type="submit">Crear</button>
+                <button id="form-btn-create" class="btn raised-button" type="submit" disabled>Crear</button>
             @else
-                <button class="btn raised-button" type="submit">Actualizar</button>
+                <button id="form-btn-update" class="btn raised-button" type="submit" disabled>Actualizar</button>
             @endif
         </form>
     </div>
